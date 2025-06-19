@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import MahalakshmiGarmentsCard from './components/MahalakshmiGarmentsCard';
+import Contact from './components/Contact';
+import ExploreUs from './components/ExploreUs'; // ⬅️ Import the new ExploreUs component
+import Directions from './components/Directions'; 
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<MahalakshmiGarmentsCard />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/collections" element={<ExploreUs />} /> {/* ✅ New route */}
+          <Route path="/directions" element={<Directions />} />
+        </Routes>
+      </Layout>
+    </Router>
   );
-}
+};
 
 export default App;
