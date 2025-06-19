@@ -6,7 +6,7 @@ const ExploreUs = () => {
   const [machines, setMachines] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/machines')
+    axios.get('https://garments-b.onrender.com/machines')
       .then(res => setMachines(res.data))
       .catch(err => {
         console.error('Error fetching machines:', err);
